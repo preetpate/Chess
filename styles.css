@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.game-title {
+    font-size: 3em;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px 30px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.btn-easy {
+    background: #4caf50;
+    color: white;
+}
+
+.btn-medium {
+    background: #ff9800;
+    color: white;
+}
+
+.btn-hard {
+    background: #f44336;
+    color: white;
+}
+
+.btn-white {
+    background: #fff;
+    color: #333;
+    border: 2px solid #333;
+}
+
+.btn-black {
+    background: #333;
+    color: #fff;
+}
+
+.game-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-icon {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-icon:hover {
+    background: #e0e0e0;
+    transform: scale(1.1);
+}
+
+.game-info {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+}
+
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0;
+    width: 100%;
+    aspect-ratio: 1;
+    border: 3px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.square {
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.square.light {
+    background: #f0d9b5;
+}
+
+.square.dark {
+    background: #b58863;
+}
+
+.square.selected {
+    background: #7fc97f !important;
+}
+
+.square.highlight {
+    background: #aaffaa !important;
+}
+
+.square.possible-move::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.square:hover {
+    opacity: 0.8;
+}
+
+.captured-pieces {
+    margin-top: 20px;
+    min-height: 40px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.history-list {
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.history-item {
+    background: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+#resultContent {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.result-win {
+    color: #4caf50;
+}
+
+.result-loss {
+    color: #f44336;
+}
+
+.result-draw {
+    color: #ff9800;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .game-title {
+        font-size: 2em;
+    }
+    
+    .square {
+        font-size: 1.8em;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}
