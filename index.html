@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preet Chess - Professional Chess Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Home Screen -->
+        <div id="homeScreen" class="screen active">
+            <div class="container">
+                <h1 class="game-title">♟️ Preet Chess</h1>
+                <p class="subtitle">Professional Chess Experience</p>
+                <button class="btn btn-primary" onclick="showModeScreen()">Play Game</button>
+                <button class="btn btn-secondary" onclick="showHistory()">Game History</button>
+            </div>
+        </div>
+
+        <!-- Mode Selection Screen -->
+        <div id="modeScreen" class="screen">
+            <div class="container">
+                <h2>Select Game Mode</h2>
+                <button class="btn btn-primary" onclick="startGame('pvp')">1 vs 1 (Same Device)</button>
+                <button class="btn btn-primary" onclick="showAIDifficulty()">Play with AI</button>
+                <button class="btn btn-secondary" onclick="showHome()">Back</button>
+            </div>
+        </div>
+
+        <!-- AI Difficulty Screen -->
+        <div id="difficultyScreen" class="screen">
+            <div class="container">
+                <h2>Select AI Difficulty</h2>
+                <button class="btn btn-easy" onclick="showColorSelection('easy')">Easy</button>
+                <button class="btn btn-medium" onclick="showColorSelection('medium')">Medium</button>
+                <button class="btn btn-hard" onclick="showColorSelection('hard')">Hard</button>
+                <button class="btn btn-secondary" onclick="showModeScreen()">Back</button>
+            </div>
+        </div>
+
+        <!-- Color Selection Screen -->
+        <div id="colorScreen" class="screen">
+            <div class="container">
+                <h2>Choose Your Color</h2>
+                <button class="btn btn-white" onclick="startGame('ai', 'white')">Play as White</button>
+                <button class="btn btn-black" onclick="startGame('ai', 'black')">Play as Black</button>
+                <button class="btn btn-secondary" onclick="showAIDifficulty()">Back</button>
+            </div>
+        </div>
+
+        <!-- Game Board Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="game-container">
+                <div class="game-header">
+                    <button class="btn-icon" onclick="showHome()" title="Home">🏠</button>
+                    <div class="game-info">
+                        <span id="turnIndicator">White's Turn</span>
+                    </div>
+                    <button class="btn-icon" onclick="undoMove()" title="Undo">↩️</button>
+                </div>
+                <div id="chessboard" class="chessboard"></div>
+                <div class="game-footer">
+                    <div id="capturedPieces" class="captured-pieces"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen">
+            <div class="container">
+                <div id="resultContent"></div>
+                <button class="btn btn-primary" onclick="showHome()">Home</button>
+                <button class="btn btn-secondary" onclick="showModeScreen()">Play Again</button>
+            </div>
+        </div>
+
+        <!-- History Screen -->
+        <div id="historyScreen" class="screen">
+            <div class="container">
+                <h2>Game History</h2>
+                <div id="historyList" class="history-list"></div>
+                <button class="btn btn-secondary" onclick="showHome()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
